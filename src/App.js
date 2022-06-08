@@ -1,8 +1,12 @@
 import React from 'react'
+import "./index.css"
+import Login from './pages/Login'
 
 function App() {
   return (
-    <div>App</div>
+    <div className='w-[auto] '  >
+    <Login /> 
+     </div>
   )
 }
 
