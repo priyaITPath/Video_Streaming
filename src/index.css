@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 .btn{
- @apply p-3 m-14 textcolor  bg-red-800 border-white rounded-lg text-lg
+ @apply p-3 m-14 textcolor  bg-red-800 border-white rounded-lg text-xl 
 }
 .bgcolor{
     @apply bg-black
@@ -14,3 +14,4 @@
 .textcolor{
     @apply text-white
 }
+

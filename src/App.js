@@ -1,11 +1,11 @@
 import React from 'react'
 import "./index.css"
-import Login from './pages/Login'
+import Dashboard from './pages/Dashboard'
 
 function App() {
   return (
     <div className='w-[auto] '  >
-    <Login /> 
+    <Dashboard/>
      </div>
   )
 }
