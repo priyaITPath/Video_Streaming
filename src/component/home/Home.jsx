@@ -1,240 +1,165 @@
-import React from "react";
-import { MdOutlineDoubleArrow } from "react-icons/md";
+import React, { useState } from "react";
+import ReactPlayer from "react-player";
+import v1 from "../../assets/videos/v1.mp4";
+import v2 from "../../assets/videos/v2.mp4";
+import v3 from "../../assets/videos/v3.mp4";
+import v4 from "../../assets/videos/v4.mp4";
+import v5 from "../../assets/videos/v5.mp4";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
-export default function Home() {
-  const series = [
-    {
-      title: "All Of Us Are Dead",
-      img: "https://www.themoviedb.org/t/p/original/pTEFqAjLd5YTsMD6NSUxV6Dq7A6.jpg",
-      authorLogo: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
-      authorName: "Sidi dev",
-      date: "Jan 4 2022",
-      href: "javascript:void(0)",
-    },
-    {
-      title: "A Quick Guide to WordPress Hosting",
-      img: "https://www.tvguide.com/a/img/catalog/provider/1/2/1-8731334567.jpg",
-      authorLogo: "https://api.uifaces.co/our-content/donated/FJkauyEa.jpg",
-      authorName: "Micheal",
-      date: "Jan 4 2022",
-      href: "javascript:void(0)",
-    },
-    {
-      title: "7 Promising VS Code Extensions Introduced in 2022",
-      img: "https://flxt.tmsimg.com/assets/p19174483_b_v8_aa.jpg",
-      authorLogo: "https://randomuser.me/api/portraits/men/46.jpg",
-      authorName: "Luis",
-      date: "Jan 4 2022",
-      href: "javascript:void(0)",
-    },
-    {
-      title: "How to Use Root C++ Interpreter Shell to Write C++ Programs",
-      img: "https://asianwiki.com/images/d/d9/Start-Up-CP1.jpg",
-      authorLogo: "https://api.uifaces.co/our-content/donated/KtCFjlD4.jpg",
-      authorName: "Lourin",
-      date: "Jan 4 2022",
-      href: "javascript:void(0)",
-    },
-  ]
-
-  const latest = [
-    {
-      title: "What is SaaS? Software as a Service Explained",
-      img: "https://www.letsfindmovie.com/wp-content/uploads/2021/07/jNZL1WoB5OtF36LWEb0vRSJC37f-1.jpg",
-      authorLogo: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
-      authorName: "Sidi dev",
-      date: "Jan 4 2022",
-      href: "javascript:void(0)",
-    },
-    {
-      title: "A Quick Guide to WordPress Hosting",
-      img: "https://m.media-amazon.com/images/M/MV5BODQ4Mjg2N2QtNTYwMS00ZDJiLTgzZjAtNjA3YmZlMzVmNjQ4XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg",
-      authorLogo: "https://api.uifaces.co/our-content/donated/FJkauyEa.jpg",
-      authorName: "Micheal",
-      date: "Jan 4 2022",
-      href: "javascript:void(0)",
-    },
-    {
-      title: "7 Promising VS Code Extensions Introduced in 2022",
-      img: "https://static.digit.in/OTT/v2/images/tr:w-1200/ben-and-jody-485217.jpg",
-      authorLogo: "https://randomuser.me/api/portraits/men/46.jpg",
-      authorName: "Luis",
-      date: "Jan 4 2022",
-      href: "javascript:void(0)",
-    },
-    {
-      title: "How to Use Root C++ Interpreter Shell to Write C++ Programs",
-      img: "https://assets.gadgets360cdn.com/pricee/assets/product/202204/Bhool_Bhulaiyaa_2_1650976194.jpeg",
-
-
-      authorLogo: "https://api.uifaces.co/our-content/donated/KtCFjlD4.jpg",
-      authorName: "Lourin",
-      date: "Jan 4 2022",
-      href: "javascript:void(0)",
-    },
-  ];
-const movies = [
+var moviesr = [
   {
-    title: "What is SaaS? Software as a Service Explained",
-    img: "https://m.media-amazon.com/images/M/MV5BYmZhNjhkN2UtN2I3NS00MzUyLTg3M2YtNjRjN2Y2NmNhNzUxXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg",
-    authorLogo: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
-    authorName: "Sidi dev",
-    date: "Jan 4 2022",
-    href: "javascript:void(0)",
+    id: 0,
+    title: "Car Racing ",
+    des:"Auto racing is a motorsport involving the racing of automobiles for competition. Auto racing has existed since the invention of the automobile. Races of various sorts were organised, with the first recorded as early as 1867. ",
+    desc: v1,
+    playing: false,
   },
   {
-    title: "A Quick Guide to WordPress Hosting",
-    img: "https://musicart.xboxlive.com/7/efee4500-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080",
-    authorLogo: "https://api.uifaces.co/our-content/donated/FJkauyEa.jpg",
-    authorName: "Micheal",
-    date: "Jan 4 2022",
-    href: "javascript:void(0)",
+    id: 1,
+    title: "Nature",
+    des:"Nature is a British weekly scientific journal founded and based in London, England. As a multidisciplinary publication, Nature features peer-reviewed research from a variety of academic disciplines, mainly in science and technology. ",
+    desc: v2,
+    playing: false,
   },
   {
-    title: "7 Promising VS Code Extensions Introduced in 2022",
-    img: "https://m.media-amazon.com/images/M/MV5BMTllZDJhMTAtMjhmZi00MzBjLTljMmQtMmNlYTAwYmY0Y2Q0XkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg",
-    authorLogo: "https://randomuser.me/api/portraits/men/46.jpg",
-    authorName: "Luis",
-    date: "Jan 4 2022",
-    href: "javascript:void(0)",
+    id: 2,
+    title: "Car Rider",
+    des:"A rider is an extra protection added to an insurance policy in exchange for paying a higher premium to an insurer. CarRiderPro is a safe and efficient way to streamline the dismissal of car riding students at the end of the school day.",
+    desc: v3,
+    playing: false,
   },
   {
-    title: "How to Use Root C++ Interpreter Shell to Write C++ Programs",
-    img: "https://bhavnatalkies.files.wordpress.com/2022/04/jersey.jpg",
-    authorLogo: "https://api.uifaces.co/our-content/donated/KtCFjlD4.jpg",
-    authorName: "Lourin",
-    date: "Jan 4 2022",
-    href: "javascript:void(0)",
+    id: 3,
+    title: "Ocean Love",
+    des:"Oceans are areas of salty water that fill enormous basins on the Earth's surface. Even though Earth has one continuous body of saltwater, scientists and geographers divide it into five different sections. ",
+    desc: v4,
+    playing: false,
   },
+  {
+    id: 4,
+    title: "Journey around the world",
+    des:"A tour is an organized trip that people such as musicians, politicians, or theatre companies go on to several different places, stopping to meet people or perform.journey around the world; world tour; voyage around the world.",
+    desc: v5,
+    playing: false,
+  },
+  {
+    id: 5,
+    title: "Car Racing ",
+    des:"Auto racing is a motorsport involving the racing of automobiles for competition. Auto racing has existed since the invention of the automobile. Races of various sorts were organised, with the first recorded as early as 1867. ",
+    desc: v1,
+    playing: false,
+  },
+  {
+    id: 6,
+    title: "Nature",
+    des:"Nature is a British weekly scientific journal founded and based in London, England. As a multidisciplinary publication, Nature features peer-reviewed research from a variety of academic disciplines, mainly in science and technology. ",
+    desc: v2,
+    playing: false,
+  },
+  {
+    id: 7,
+    title: "Car Rider",
+    des:"A rider is an extra protection added to an insurance policy in exchange for paying a higher premium to an insurer. CarRiderPro is a safe and efficient way to streamline the dismissal of car riding students at the end of the school day.",
+    desc: v3,
+    playing: false,
+  },
+  {
+    id: 8,
+    title: "Ocean Love",
+    des:"Oceans are areas of salty water that fill enormous basins on the Earth's surface. Even though Earth has one continuous body of saltwater, scientists and geographers divide it into five different sections. ",
+    desc: v4,
+    playing: false,
+  },
+  {
+    id: 4,
+    title: "Journey around the world",
+    des:"A tour is an organized trip that people such as musicians, politicians, or theatre companies go on to several different places, stopping to meet people or perform.journey around the world; world tour; voyage around the world.",
+    desc: v5,
+    playing: false,
+  },
+];
 
-]
+function Home() {
+  const [first, setFirst] = useState(true);
+  const [movies, setmovies] = useState(moviesr);
+
+  const PlayVideo = (e) => {
+    const newState = movies.map((obj) => {
+      if (obj.id === e) {
+        return { ...obj, playing: true };
+      }
+      return obj;
+    });
+    setmovies(newState);
+  };
+  const PauseVideo = (e) => {
+    const newState = movies.map((obj) => {
+      if (obj.id === e) {
+        return { ...obj, playing: false };
+      }
+      return obj;
+    });
+    setmovies(newState);
+  };
+
   return (
-    <section className="mt-12 mx-auto px-4 max-w-screen-xxl lg:px-8">
-      <div className="text-left  ">
-        <a href="#" className="text-xl text-white font-semibold flex items-center  ">
-          Series <MdOutlineDoubleArrow className="mt-[5px] ml-[5px]" />
-        </a>
-      </div>
-      <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-        {series.map((items, key) => (
-          <article
-            className="max-w-md mx-auto mt-4 shadow-lg border rounded-md duration-300 hover:shadow-sm"
-            key={key}
-          >
-            <a href={items.href}>
-              <img
-                src={items.img}
-                loading="lazy"
-                alt={items.title}
-                className="w-full h-35 rounded-t-md"
-              />
-              <div className="flex items-center mt-2 pt-3 ml-4 mr-2">
-                <div className="flex-none w-10 rounded-full">
-                  <img
-                    src={items.authorLogo}
-                    className="w-full h-full rounded-full"
-                    alt={items.authorName}
-                  />
-                </div>
-                <div className="ml-3">
-                  <span className="block text-white">
-                    {items.authorName}
-                  </span>
-                  <span className="block text-white text-sm">
-                    {items.date}
-                  </span>
-                </div>
-              </div>
-              <div className="pt-3 ml-4 mr-2 mb-3">
-                <h3 className="text-xl text-white">{items.title}</h3>
-                <p className="text-gray-400 text-sm mt-1">{items.desc}</p>
-              </div>
-            </a>
-          </article>
-        ))}
-      </div>
-      <a href="#" className="text-2xl text-white font-semibold flex mt-[20px] items-center">
-          Latest <MdOutlineDoubleArrow className="mt-[5px] ml-[5px]" />
-        </a>
-      <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4 ">
-        {latest.map((items, key) => (
-          <article
-            className="max-w-md mx-auto mt-4 shadow-lg border rounded-md duration-300 hover:shadow-sm"
-            key={key}
-          >
-            <a href={items.href}>
-              <img
-                src={items.img}
-                loading="lazy"
-                alt={items.title}
-                className="w-full h-35 rounded-t-md"
-              />
-              <div className="flex items-center mt-2 pt-3 ml-4 mr-2">
-                <div className="flex-none w-10 h-10 rounded-full">
-                  <img
-                    src={items.authorLogo}
-                    className="w-full h-full rounded-full"
-                    alt={items.authorName}
-                  />
-                </div>
-                <div className="ml-3">
-                  <span className="block text-white">
-                    {items.authorName}
-                  </span>
-                  <span className="block text-white text-sm">
-                    {items.date}
-                  </span>
-                </div>
-              </div>
-              <div className="pt-3 ml-4 mr-2 mb-3">
-                <h3 className="text-xl text-white">{items.title}</h3>
-                <p className="text-white text-sm mt-1">{items.desc}</p>
-              </div>
-            </a>
-          </article>
-        ))}
-      </div>
-      <a href="#" className="text-2xl text-white font-semibold flex mt-[20px] items-center ">
-          Films <MdOutlineDoubleArrow className="mt-[5px] ml-[5px]" />
-        </a>
-      <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-        {movies.map((items, key) => (
-          <article
-            className="max-w-md mx-auto mt-4 shadow-lg border rounded-md duration-300 hover:shadow-sm"
-            key={key}
-          >
-            <a href={items.href}>
-              <img
-                src={items.img}
-                loading="lazy"
-                alt={items.title}
-                className="w-full h-35 rounded-t-md"
-              />
-              <div className="flex items-center mt-2 pt-3 ml-4 mr-2">
-                <div className="flex-none w-10 h-10 rounded-full">
-                  <img
-                    src={items.authorLogo}
-                    className="w-full h-full rounded-full"
-                    alt={items.authorName}
-                  />
-                </div>
-                <div className="ml-3">
-                  <span className="block text-white">
-                    {items.authorName}
-                  </span>
-                  <span className="block text-white text-sm">
-                    {items.date}
-                  </span>
-                </div>
-              </div>
-              <div className="pt-3 ml-4 mr-2 mb-3">
-                <h3 className="text-xl text-white">{items.title}</h3>
-                <p className="text-white text-sm mt-1">{items.desc}</p>
-              </div>
-            </a>
-          </article>
-        ))}
-      </div>
-    </section>
+    <div style={{flexDirection:"row", justifyContent: "space-between" }} className="flex-wrap flex   justify-between mt-2">
+      {movies.map((item, key) => {
+        return (
+
+         
+          <Card className="mt-4 mx-4" sx={{ maxWidth: 345 }}>
+          <ReactPlayer 
+          // style={{ height:"20rem"}}
+            // onMouseLeave={()=>{setFirst(false)
+            //    setSecond(true)}}
+            onMouseOver={() => PlayVideo(item.id)}
+            onMouseLeave={() => PauseVideo(item.id)}
+            url={item.desc}
+            muted={true}
+            playing={item.playing}
+            width="100%"
+            height="auto"
+            controls
+          />
+     
+      <CardContent>
+      <Typography >
+      {item.title}
+      </Typography>
+        <Typography variant="body2" color="text.secondary">
+        {item.des}
+        
+        </Typography>
+      </CardContent>
+     
+    </Card>
+
+
+
+
+
+
+
+
+        );
+      })}
+
+     
+
+
+
+
+    </div>
+
+
+
+   
+
   );
 }
+
+export default Home;

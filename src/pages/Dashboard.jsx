@@ -5,7 +5,7 @@ import Home from "../component/home/Home"
 
 function Dashboard() {
   return (
-    <div className="bg-black">
+    <div >
     <Navbar />
     <Home />
     </div>
